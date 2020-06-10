@@ -8,4 +8,4 @@ The video player can play both Vimeo and YouTube videos and will also persist st
 - JSX
 - Styled Components
 - HOC
-- Use Local Storage to keep state
+- Local Storage to keep state
