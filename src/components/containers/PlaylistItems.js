@@ -1,12 +1,22 @@
-import React from 'react'
-import PlaylistItem from '../PlaylistItem'
-import StyledPlayListItems from '../styles/StyledPlaylistItems'
+import React from 'react';
+import PlaylistItem from '../PlaylistItem';
+import withLink from '../hoc/withLink';
+import StyledPlaylistitems from '../styles/StyledPlaylistitems';
 
+const PlaylistItemWithLink = withLink(PlaylistItem);
 
-const PlaylistItems = props => (
-     <StyledPlayListItems>
-     <PlaylistItem />
-     </StyledPlayListItems>
+const Playlistitems = ({ videos, active }) => (
+  <StyledPlaylistitems>
+    {videos.map(video => (
+      <PlaylistItemWithLink
+        key={video.id}
+        video={video}
+        //  check if the active id is the same with video id  to know which video is active
+        active={video.id === active.id ? true : false}
+        played={video.played}
+      />
+    ))}
+  </StyledPlaylistitems>
 )
 
-export default PlaylistItems
+export default Playlistitems;
